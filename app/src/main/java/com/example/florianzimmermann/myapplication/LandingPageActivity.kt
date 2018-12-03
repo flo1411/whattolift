@@ -1,20 +1,24 @@
 package com.example.florianzimmermann.myapplication
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import com.example.florianzimmermann.myapplication.fragments.LandingPageFragment
+import com.example.florianzimmermann.myapplication.utils.obtainViewModel
+import com.example.florianzimmermann.myapplication.utils.replaceFragment
+import com.example.florianzimmermann.myapplication.viewmodels.LandingPageActivityViewModel
 
-class LandingPageActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class LandingPageActivity : BaseActivity() {
 
-//        if (savedInstanceState == null) {
-//            supportFragmentManager
-//                    .beginTransaction()
-//                    .add(R.id.contentFrame, LandingPageFragment.newInstance(), "mainFragment")
-//                    .commit()
-//        }
+    override fun init() {
+        viewModel = obtainViewModel()
+        viewModel.onStart()
+
+        replaceFragment(LandingPageFragment.newInstance(), false)
     }
+
+    override fun getLayout(): Int {
+        return R.layout.activity_main
+    }
+
+    private lateinit var viewModel: LandingPageActivityViewModel
+
 }

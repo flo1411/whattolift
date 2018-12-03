@@ -3,6 +3,7 @@
     package="com.example.florianzimmermann.myapplication">
 
     <application
+        android:name=".LiftApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

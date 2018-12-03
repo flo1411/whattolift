@@ -7,7 +7,7 @@ import com.example.florianzimmermann.myapplication.utils.extensions.map
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
-class LandingPageViewModel @Inject constructor(private val getExercisesUseCase: GetExercisesUseCase) : ViewModel() {
+class LandingPageFragmentViewModel @Inject constructor(private val getExercisesUseCase: GetExercisesUseCase) : ViewModel() {
 
     private var search: Disposable? = null
 

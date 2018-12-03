@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.florianzimmermann.myapplication.R
-import com.example.florianzimmermann.myapplication.di.components.AppComponent
 import com.example.florianzimmermann.myapplication.utils.obtainViewModel
-import com.example.florianzimmermann.myapplication.viewmodels.LandingPageViewModel
+import com.example.florianzimmermann.myapplication.viewmodels.LandingPageFragmentViewModel
+import javax.inject.Inject
 
 class LandingPageFragment : BaseFragment() {
 
-    lateinit var viewModel: LandingPageViewModel
+    @Inject
+    lateinit var viewModel: LandingPageFragmentViewModel
 
     companion object {
         fun newInstance(): BaseFragment {
