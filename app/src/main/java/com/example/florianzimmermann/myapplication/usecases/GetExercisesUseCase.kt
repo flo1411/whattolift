@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
 import javax.inject.Inject
 
-class GetExercisesUseCase @Inject constructor(private val exerciseRepo: ExerciseRepository) : MediatorUseCase<Unit, List<kotlin.Any>>() {
+class GetExercisesUseCase(private val exerciseRepo: ExerciseRepository) : MediatorUseCase<Unit, List<kotlin.Any>>() {
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -22,10 +22,12 @@ class GetExercisesUseCase @Inject constructor(private val exerciseRepo: Exercise
     }
 
     private fun onExcerciseResult(response: Response<Any>?) {
+        var test = 1;
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     private fun onError(throwable: Throwable) {
         result.postValue(Result.Error(ExerciseRequestFailedException(throwable.message)))
     }
+
 }
