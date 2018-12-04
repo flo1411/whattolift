@@ -38,7 +38,7 @@ class AppModule() {
     @Singleton
     fun provideApiService(gson : Gson) : ApiService{
         return Retrofit.Builder()
-                .baseUrl("http://api.icndb.com/")
+                .baseUrl("https://wger.de")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()

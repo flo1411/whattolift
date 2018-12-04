@@ -1,14 +1,15 @@
 package com.example.florianzimmermann.myapplication.usecases
 
 import com.example.florianzimmermann.myapplication.model.Result
+import com.example.florianzimmermann.myapplication.model.exercises.Exercise
 import com.example.florianzimmermann.myapplication.model.exercises.ExerciseRequestFailedException
+import com.example.florianzimmermann.myapplication.model.exercises.ExerciseWrapper
 import com.example.florianzimmermann.myapplication.persistence.ExerciseRepository
 import com.example.florianzimmermann.myapplication.utils.MediatorUseCase
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import retrofit2.Response
-import javax.inject.Inject
 
 class GetExercisesUseCase(private val exerciseRepo: ExerciseRepository) : MediatorUseCase<Unit, List<kotlin.Any>>() {
 
@@ -18,12 +19,16 @@ class GetExercisesUseCase(private val exerciseRepo: ExerciseRepository) : Mediat
         compositeDisposable.add(exerciseRepo.requestAllExercises()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .toList()
                 .subscribe({ response -> onExcerciseResult(response) }, { throwable -> onError(throwable) }))
     }
 
-    private fun onExcerciseResult(response: Response<Any>?) {
-        var test = 1;
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun onExcerciseResult(response: MutableList<ExerciseWrapper>) {
+        val exercises : ArrayList<Exercise> = ArrayList()
+        for (item : ExerciseWrapper in response){
+            exercises.addAll(item.results)
+        }
+        result.postValue(Result.Success(exercises))
     }
 
     private fun onError(throwable: Throwable) {

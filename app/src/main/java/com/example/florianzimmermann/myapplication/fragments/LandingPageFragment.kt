@@ -1,5 +1,6 @@
 package com.example.florianzimmermann.myapplication.fragments
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +32,9 @@ class LandingPageFragment : BaseFragment() {
 
     private fun initViewModel() {
         viewModel = obtainViewModel()
-        var test = 12
+
+        viewModel.exercises.observe(this, Observer {
+            val test = 123
+        })
     }
 }
