@@ -21,4 +21,5 @@ class LandingPageFragmentViewModel @Inject constructor(private val getExercisesU
 
         getExercisesUseCase.execute(Unit)
     }
+
 }

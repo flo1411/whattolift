@@ -10,8 +10,9 @@ import javax.inject.Inject
 
 class ExerciseCloudStore @Inject constructor(private val networkManager: NetworkManager) : ExerciseCloudDelegate {
 
-    override fun requestAllExercises(): Observable<ExerciseWrapper> {
+    override fun requestAllExercises(): Single<List<Exercise>> {
         return networkManager.getPageAndNext("https://wger.de/api/v2/exercise/?language=1")
+                .toList()
+                .map { it.flatMap { it.results } }
     }
-
 }

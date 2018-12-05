@@ -36,5 +36,8 @@ class LandingPageFragment : BaseFragment() {
         viewModel.exercises.observe(this, Observer {
             val test = 123
         })
+
+
+
     }
 }
