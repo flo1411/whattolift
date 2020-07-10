@@ -1,7 +1,7 @@
 package com.example.florianzimmermann.myapplication.utils
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.florianzimmermann.myapplication.usecases.GetExercisesUseCase
 import com.example.florianzimmermann.myapplication.viewmodels.LandingPageActivityViewModel
 import com.example.florianzimmermann.myapplication.viewmodels.LandingPageFragmentViewModel

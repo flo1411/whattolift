@@ -1,6 +1,6 @@
 package com.example.florianzimmermann.myapplication.viewmodels
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 
 class LandingPageActivityViewModel () : ViewModel() {
 

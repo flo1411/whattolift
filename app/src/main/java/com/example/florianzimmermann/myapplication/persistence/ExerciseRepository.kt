@@ -12,8 +12,8 @@ class ExerciseRepository constructor(private val localStore: ExerciseDiskDelegat
         if (localStore.hasExercisesSaved()){
             return localStore.requestAllExercises()
         }
-        return networkManager.requestAllExercises().doOnSuccess( {
+        return networkManager.requestAllExercises().doOnSuccess {
             localStore.setAllExercises(it)
-        })
+        }
     }
 }

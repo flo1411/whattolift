@@ -13,6 +13,6 @@ class ExerciseCloudStore @Inject constructor(private val networkManager: Network
     override fun requestAllExercises(): Single<List<Exercise>> {
         return networkManager.getPageAndNext("https://wger.de/api/v2/exercise/?language=1")
                 .toList()
-                .map { it.flatMap { it.results } }
+                .map { it -> it.flatMap { it.results } }
     }
 }

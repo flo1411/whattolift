@@ -15,6 +15,8 @@ import com.example.florianzimmermann.myapplication.utils.ViewModelFactory
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
