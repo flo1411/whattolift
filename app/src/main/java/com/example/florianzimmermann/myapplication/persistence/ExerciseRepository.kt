@@ -4,8 +4,9 @@ import com.example.florianzimmermann.myapplication.model.exercises.Exercise
 import com.example.florianzimmermann.myapplication.persistence.cloudstores.ExerciseCloudDelegate
 import com.example.florianzimmermann.myapplication.persistence.diskstores.ExerciseDiskDelegate
 import io.reactivex.Single
+import javax.inject.Inject
 
-class ExerciseRepository constructor(private val localStore: ExerciseDiskDelegate,
+class ExerciseRepository @Inject constructor(private val localStore: ExerciseDiskDelegate,
                                              private val networkManager: ExerciseCloudDelegate) {
 
     fun getAllExercises() : Single<List<Exercise>> {

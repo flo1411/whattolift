@@ -1,14 +1,9 @@
 package com.example.florianzimmermann.myapplication
 
 import android.os.Bundle
-import com.example.florianzimmermann.myapplication.utils.ViewModelFactory
-import dagger.android.support.DaggerAppCompatActivity
-import javax.inject.Inject
+import androidx.appcompat.app.AppCompatActivity
 
-abstract class BaseActivity : DaggerAppCompatActivity() {
-
-    @Inject
-    lateinit var factory : ViewModelFactory
+abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

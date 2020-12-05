@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.florianzimmermann.myapplication.R
-import com.example.florianzimmermann.myapplication.utils.obtainViewModel
 import com.example.florianzimmermann.myapplication.viewmodels.LandingPageFragmentViewModel
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LandingPageFragment : BaseFragment() {
 
-    @Inject
-    lateinit var viewModel: LandingPageFragmentViewModel
+    private val viewModel: LandingPageFragmentViewModel by viewModels()
 
     companion object {
         fun newInstance(): BaseFragment {
@@ -31,8 +31,6 @@ class LandingPageFragment : BaseFragment() {
     }
 
     private fun initViewModel() {
-        viewModel = obtainViewModel()
-
         viewModel.exercises.observe(this.viewLifecycleOwner, Observer {
             val test = 123
         })

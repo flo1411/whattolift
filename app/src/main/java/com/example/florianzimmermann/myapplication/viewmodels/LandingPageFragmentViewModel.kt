@@ -1,5 +1,6 @@
 package com.example.florianzimmermann.myapplication.viewmodels
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.florianzimmermann.myapplication.model.Result
@@ -9,9 +10,10 @@ import com.example.florianzimmermann.myapplication.utils.extensions.map
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
-class LandingPageFragmentViewModel @Inject constructor(private val getExercisesUseCase: GetExercisesUseCase) : ViewModel() {
+class LandingPageFragmentViewModel @ViewModelInject constructor(getExercisesUseCase: GetExercisesUseCase) : ViewModel() {
 
     val exercises : LiveData<List<Exercise>>
+
     private var search: Disposable? = null
 
     init {

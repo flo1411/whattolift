@@ -7,8 +7,9 @@ import com.example.florianzimmermann.myapplication.persistence.ExerciseRepositor
 import com.example.florianzimmermann.myapplication.utils.MediatorUseCase
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class GetExercisesUseCase(private val exerciseRepo: ExerciseRepository) : MediatorUseCase<Unit, List<Exercise>>() {
+class GetExercisesUseCase constructor(private val exerciseRepo: ExerciseRepository) : MediatorUseCase<Unit, List<Exercise>>() {
 
     private val compositeDisposable = CompositeDisposable()
 
